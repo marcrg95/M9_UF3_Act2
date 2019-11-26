@@ -8,26 +8,13 @@ public class Exemple1URL {
 		URL url;
 
 		try {
-
-			System.out.println("Constructor simple per a un URL: ");
-			url = new URL("http://docs.oracle.com/");
-			Visualitzar(url);
-
-			System.out.println("Altra constructor simple per a un URL: ");
-			url = new URL("http://localhost/moodle/");
-			Visualitzar(url);
-
-			System.out.println("Constructor per a protocol + URL + directori: ");
-			url = new URL("http", "doc.oracle.com", "/javase/7");
-			Visualitzar(url);
-
-			System.out.println("Constructor per a protocol + URL + port + directori: ");
-			url = new URL("http", "doc.oracle.com", 80, "/javase/7");
-			Visualitzar(url);
-
-			System.out.println("Constructor per a un objecte URL i un directori: ");
-			URL urlBase = new URL("http://docs.oracle.com/");
-			url = new URL(urlBase, "/javase/7/docs/api/java/net/URL.html");
+			//Creem un objecte tipus URL amb 4 paràmetres.
+			//El primer es el protocol (http, ftp, https...), el segon es el domini,
+			//el tercer es el numero de port i l'últim el subdirectori de la URL.
+			url = new URL(args[0].substring(0, args[0].indexOf(':')-1),
+					args[0].substring(args[0].indexOf("//")+2,args[0].indexOf('/', args[0].indexOf("//")+2)),
+					Integer.parseInt(args[1]),
+					args[0].substring(args[0].indexOf('/', args[0].indexOf("//")+2), args[0].length()));
 			Visualitzar(url);
 
 		} catch (MalformedURLException e) {
