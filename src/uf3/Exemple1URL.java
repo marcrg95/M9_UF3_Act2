@@ -11,7 +11,7 @@ public class Exemple1URL {
 			//Creem un objecte tipus URL amb 4 paràmetres.
 			//El primer es el protocol (http, ftp, https...), el segon es el domini,
 			//el tercer es el numero de port i l'últim el subdirectori de la URL.
-			url = new URL(args[0].substring(0, args[0].indexOf(':')-1),
+			url = new URL(args[0].substring(0, args[0].indexOf(':')),
 					args[0].substring(args[0].indexOf("//")+2,args[0].indexOf('/', args[0].indexOf("//")+2)),
 					Integer.parseInt(args[1]),
 					args[0].substring(args[0].indexOf('/', args[0].indexOf("//")+2), args[0].length()));
