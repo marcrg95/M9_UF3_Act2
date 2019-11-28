@@ -9,7 +9,10 @@ public class Exemple2URL {
 		
 		try {
 			
-			url = new URL("http://www.insbaixcamp.cat/moodle/");
+			url = new URL(args[0].substring(0, args[0].indexOf(':')),
+					args[0].substring(args[0].indexOf("//")+2,args[0].indexOf('/', args[0].indexOf("//")+2)),
+					Integer.parseInt(args[1]),
+					args[0].substring(args[0].indexOf('/', args[0].indexOf("//")+2), args[0].length()));
 			
 		} catch (MalformedURLException e) {e.printStackTrace(); }
 		
